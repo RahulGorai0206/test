@@ -196,7 +196,13 @@
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
          provisioning, availability etc -->
     <bool name="config_carrier_volte_available">true</bool>
+
+    <!-- Flag specifying whether VT is available on device -->
     <bool name="config_device_vt_available">true</bool>
+
+    <!-- Flag specifying whether VT should be available for carrier: independent of
+         carrier provisioning. If false: hard disabled. If true: then depends on carrier
+         provisioning, availability etc -->
     <bool name="config_carrier_vt_available">true</bool>
 
     <!-- Flag specifying whether WFC over IMS is available on device -->
@@ -301,6 +307,29 @@
         <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
     </string-array>
 
+    <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
+         in hardware for individual layers. -->
+    <bool name="config_setColorTransformAcceleratedPerLayer">true</bool>
+
+    <!-- Maximum color temperature, in Kelvin, supported by Night display.
+         Setting this to track config_displayWhiteBalanceColorTemperatureDefault (currently 6500K). -->
+    <integer name="config_nightDisplayColorTemperatureMax">6500</integer>
+
+    <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
+         manually by the user. Off by default, since the expected haptic feedback may not be
+         available on some devices. -->
+    <bool name="config_enableHapticTextHandle">true</bool>
+
+    <!-- Exempt ImsService from privacy (location) indicators -->
+    <string name="config_systemTelephonyPackage" translatable="false">com.qualcomm.qti.cne</string>
+
+    <!-- Whether the always on display mode is available. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Control whether the always on display mode is enabled by default. This value will be used
+         during initialization when the setting is still null. -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
     <!-- The default journal mode to use use when Write-Ahead Logging is not active.
          Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
          PERSIST may improve performance by reducing how often journal blocks are
@@ -328,21 +357,7 @@
          running in WAL mode.
          Choices are: FULL, NORMAL, OFF. -->
     <string name="db_wal_sync_mode" translatable="false">OFF</string>
-    <!-- Whether the always on display mode is available. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
-    <!-- Control whether the always on display mode is enabled by default. This value will be used
-         during initialization when the setting is still null. -->
-    <bool name="config_dozeAlwaysOnEnabled">false</bool>
-
-    <!-- Flag indicating whether the surface flinger has limited
-         alpha compositing functionality in hardware.  If set, the window
-         manager will disable alpha trasformation in animations where not
-         strictly needed. -->
-    <bool name="config_sf_limitedAlpha">true</bool>
-
-    <!-- Enables or disables fading edges when marquee is enabled in TextView.
-         Off by default, since the framebuffer readback used to implement the
-         fading edges is prohibitively expensive on most GPUs. -->
-    <bool name="config_ui_enableFadingMarquee">true</bool>
+    <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
+    <integer name="config_screenRecorderMaxFramerate">60</integer>
 </resources>
